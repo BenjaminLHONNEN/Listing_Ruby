@@ -1,9 +1,10 @@
 class Api::V1::MessagesController < Api::V1::ApiController
 
 
+  before_action :authorize_request
+
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
-    before_action :authorize_request
   end
 
   def index
