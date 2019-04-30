@@ -1,5 +1,6 @@
 class Api::V1::ArticlesController < Api::V1::ApiController
 
+  before_action :authorize_request, except: :index
 
   # GET /articles
   def index
@@ -13,9 +14,7 @@ class Api::V1::ArticlesController < Api::V1::ApiController
 
   # POST /articles
   def create
-    before_action :authorize_request
-
-    @article = Article.new(article_params)
+    @article = Article.new(article_params(@current_user))
     if @article.save
       render json: @article, status: :create
     else
@@ -25,9 +24,7 @@ class Api::V1::ArticlesController < Api::V1::ApiController
 
   # PATCH/PUT /articles/1
   def update
-    before_action :authorize_request
-
-    if @article.update(article_params)
+    if @article.update(article_params(@current_user))
       render json: @article, status: :update
     else
       render json: @article.errors, status: :unprocessable_entity
@@ -41,9 +38,9 @@ class Api::V1::ArticlesController < Api::V1::ApiController
 
   private
 
-  def article_params
-    before_action :authorize_request
-
-    params.require(:article).permit(:title, :content, :price, @current_user, :category_id)
+  def article_params(current_user)
+    params.require(:article)
+        .permit(:title, :content, :price, :category_id, :user_id)
+        .merge(user_id: current_user)
   end
 end

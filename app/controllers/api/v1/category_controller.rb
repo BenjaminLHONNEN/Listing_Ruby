@@ -1,5 +1,6 @@
 class Api::V1::CategoryController < Api::V1::ApiController
 
+  before_action :authorize_request, except: :index
   # GET /categories
   def index
     @categories = Category.all
@@ -12,7 +13,6 @@ class Api::V1::CategoryController < Api::V1::ApiController
 
   # POST /categories
   def create
-    before_action :authorize_request
     @category = Category.new(category_params)
     if @category.save
       render json: @category, status: :create
@@ -23,7 +23,6 @@ class Api::V1::CategoryController < Api::V1::ApiController
 
   # PATCH/PUT /categories/1
   def update
-    before_action :authorize_request
     if @category.update(article_params)
       render json: @category , status: :update
     else
@@ -33,7 +32,6 @@ class Api::V1::CategoryController < Api::V1::ApiController
 
   # DELETE /categories/1
   def destroy
-    before_action :authorize_request
     @category.destroy
   end
 
