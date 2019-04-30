@@ -13,6 +13,8 @@ class Api::V1::ArticlesController < Api::V1::ApiController
 
   # POST /articles
   def create
+    before_action :authorize_request
+
     @article = Article.new(article_params)
     if @article.save
       render json: @article, status: :create
@@ -23,6 +25,8 @@ class Api::V1::ArticlesController < Api::V1::ApiController
 
   # PATCH/PUT /articles/1
   def update
+    before_action :authorize_request
+
     if @article.update(article_params)
       render json: @article, status: :update
     else
@@ -38,9 +42,8 @@ class Api::V1::ArticlesController < Api::V1::ApiController
   private
 
   def article_params
-    authorization_object = Authorization.new(request)
-    current_user = authorization_object.current_user
+    before_action :authorize_request
 
-    params.require(:article).permit(:title, :content, :price, current_user, :category_id)
+    params.require(:article).permit(:title, :content, :price, @current_user, :category_id)
   end
 end
