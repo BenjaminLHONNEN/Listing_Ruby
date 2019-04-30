@@ -11,7 +11,7 @@ class Api::V1::MessagesController < Api::V1::ApiController
 
     @messages = @conversation.messages
 
-    @messages.where("user_id != ? AND read = ?", @current_user, false).update_all(read: true)
+    @messages.where("user_id != ?", @current_user)
 
     @message = @conversation.messages.new
   end
