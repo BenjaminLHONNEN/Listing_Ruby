@@ -1,6 +1,7 @@
 class Api::V1::ApiController < ActionController::API
 
-  protect_from_forgery with: :null_session
+  # protect_from_forgery with: :exception
+  # skip_before_action :verify_authenticity_token
 
   def not_found
     render json: { error: 'not_found' }
