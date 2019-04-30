@@ -1,0 +1,55 @@
+  <%- if controller_name != 'sessions' %>
+    <div class="input-field col s12 m12 l12">
+      <p class="margin center-align medium-small">
+        <%= link_to t("link_devise.Log_in"), new_session_path(resource_name) %><br/>
+      </p>
+    </div>
+  <% end -%>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <div class="input-field col s12 m12 l12">
+      <p class="margin center-align medium-small">
+        <%= link_to t("link_devise.Sign_up"), new_registration_path(resource_name) %><br/>
+      </p>
+    </div>
+  <% end -%>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <div class="input-field col s12 m12 l12">
+      <p class="margin center-align medium-small">
+        <%= link_to t("link_devise.Forgot"), new_password_path(resource_name) %><br/>
+      </p>
+    </div>
+  <% end -%>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <div class="input-field col s12 m12 l12">
+      <p class="margin center-align medium-small">
+        <%= link_to t("link_devise.Confirmation"), new_confirmation_path(resource_name) %><br/>
+    </div>
+  <% end -%>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <div class="input-field col s12 m12 l12">
+      <p class="margin center-align medium-small">
+        <%= link_to t("link_devise.Unlock"), new_unlock_path(resource_name) %><br/>
+      </p>
+    </div>
+  <% end -%>
+
+  <%- if devise_mapping.omniauthable? %>
+    <div class="input-field col s12 m12 l12">
+      <p class="margin center-align medium-small">
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %>
+          <br/>
+        <% end -%>
+      </p>
+    </div>
+  <% end -%>
+
+  <style>
+    .margin{
+      margin: -15px;
+    }
+  </style>

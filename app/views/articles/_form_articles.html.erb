@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card" style="height: 100%">
+      <div class="card-content">
+        <div class="center-align card-title" style="margin-top: 1rem">
+          <h5><%= t("article_devise.title_page_create") %></h5>
+        </div>
+        <%= form_for @article, :url => {:action => "create"} do |f| %>
+          <% if @article.errors.any? %>
+            <div id="errorExplanation">
+              <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+                this post from being saved:</h2>
+              <ul>
+                <% @article.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="row">
+            <div class="input-field col s10">
+              <i class="material-icons prefix">title</i>
+              <%= f.text_field :title, class: "validate", id: "icon_prefix" %>
+              <%= f.label t("article_devise.title"), for: "icon_prefix" %>
+            </div>
+            <div class="input-field col s2">
+              <i class="material-icons prefix">euro_symbol</i>
+              <%= f.text_field :price, class: "validate", id: "icon_prefix1" %>
+              <%= f.label t("article_devise.price"), for: "icon_prefix1" %>
+            </div>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <%= f.text_area :content, class: "materialize-textarea", id: "icon_prefix2" %>
+            <%= f.label t("article_devise.content"), for: "icon_prefix2" %>
+          </div>
+
+          <div class="input-field col s12">
+            <select name="article[category_id]">
+              <% Category.all.each do |category| %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+              <% end %>
+            </select>
+            <%= f.label t("article_devise.category"), for: "icon_prefix2" %>
+          </div>
+
+          <div class="actions right-align" style="margin: 2rem">
+            <%= f.submit t("article_devise.send"), class: "btn waves-effect waves-light " %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

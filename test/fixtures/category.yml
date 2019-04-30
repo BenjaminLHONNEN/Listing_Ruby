@@ -1,0 +1,10 @@
+
+one:
+  id: 1
+  name: "Games"
+two:
+  id: 2
+  name: "Tv"
+three:
+  id: 3
+  name: "Phone"

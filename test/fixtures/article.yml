@@ -1,0 +1,48 @@
+one:
+  id: 1
+  title: "Sed ut perspiciatis unde omnis iste natus error"
+  content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+  price: "99.99"
+  picture: "http://url1.fr/XO07"
+  user_id: 1
+  category_id: 1
+two:
+  id: 2
+  title: "Sed ut perspiciatis unde omnis iste natus error"
+  content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+  price: "99.99"
+  picture: "http://url1.fr/XO07"
+  user_id: 1
+  category_id: 2
+three:
+  id: 3
+  title: "Sed ut perspiciatis unde omnis iste natus error"
+  content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+  picture: "http://url1.fr/XO07"
+  price: "99.99"
+  user_id: 1
+  category_id: 3
+four:
+  id: 4
+  title: "Sed ut perspiciatis unde omnis iste natus error"
+  content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+  picture: "http://url1.fr/XO07"
+  price: "99.99"
+  user_id: 1
+  category_id: 3
+five:
+  id: 5
+  title: "Sed ut perspiciatis unde omnis iste natus error"
+  content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+  picture: "http://url1.fr/XO07"
+  price: "99.99"
+  user_id: 1
+  category_id: 3
+six:
+  id: 6
+  title: "Sed ut perspiciatis unde omnis iste natus error"
+  content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+  picture: "http://url1.fr/XO07"
+  price: "99.99"
+  user_id: 1
+  category_id: 3

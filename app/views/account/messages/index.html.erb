@@ -1,0 +1,117 @@
+<div class="row">
+  <div style="
+  /* overflow-x: scroll; */
+      overflow: auto;
+      height: 35rem;
+      width: 100%;
+  ">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <% if message.user_id === current_user.id %>
+          <div class="col s12 m12">
+            <div class="msg_cotainer_send">
+              <%= message.body %>
+              <span class="msg_time_send"><%= message.created_at%></span>
+            </div>
+          </div>
+        <% else %>
+          <div class="col s12 m12">
+            <div class="msg_cotainer">
+              <%= message.body %>
+              <span class="msg_time"><%= message.created_at%></span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= form_for @message, :url => {:action => "create"} do |f| %>
+    <div class="field">
+      <%= f.text_area :body, placeholder: "Your message", :style => "resize: none"%>
+    </div>
+
+    <%= f.submit "Send", :class => "btn green" do %>
+      <i class="material-icons right">send</i>
+    <% end %>
+  <% end %>
+
+</div>
+
+<style>
+
+  .contacts li{
+    width: 100% !important;
+    padding: 5px 10px;
+    margin-bottom: 15px !important;
+  }
+
+  .user_info span{
+    font-size: 20px;
+    color: white;
+  }
+  .user_info p{
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+  }
+  .video_cam span{
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  .msg_cotainer{
+    margin-top: 2rem;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #82ccdd;
+    padding: 10px;
+    position: relative;
+    width: 15%;
+    float: right;
+  }
+  .msg_cotainer_send{
+    margin-top: 2rem;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: #78e08f;
+    padding: 10px;
+    position: relative;
+    width: 15%;
+    float: left;
+  }
+  .msg_time{
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    color: rgba(0,0,0,0.5);
+    font-size: 10px;
+  }
+  .msg_time_send{
+    position: absolute;
+    right:0;
+    bottom: -15px;
+    color: rgba(0,0,0,0.5);
+    font-size: 10px;
+  }
+
+  .action_menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .action_menu ul li{
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+  }
+  .action_menu ul li i{
+    padding-right: 10px;
+
+  }
+  .action_menu ul li:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+  }
+</style>

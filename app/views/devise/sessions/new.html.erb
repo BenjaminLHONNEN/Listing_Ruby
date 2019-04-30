@@ -1,0 +1,45 @@
+<div id="login-page" class="row" style="width: 25%;">
+  <div class="col s12 z-depth-4 card-panel">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <p class="center login-form-text">
+              <%= t("view_devise.title_login") %>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12  login-text">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12  login-text">
+            <%= f.label :password %><br/>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12  login-text">
+            <p>
+              <label>
+                <%= f.check_box :remember_me %>
+                <span><%= f.label :remember_me %></span>
+              </label>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.submit t("link_devise.Log_in"), class:"btn waves-effect waves-light col s12" %>
+          </div>
+        </div>
+        <div class="row">
+          <%= render "devise/shared/links" %>
+        </div>
+      </form>
+    <% end %>
+  </div>
+</div>

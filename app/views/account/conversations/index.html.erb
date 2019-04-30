@@ -1,0 +1,23 @@
+<%= render "account/submenu" %>
+<div class="row">
+  <% @conversations.each do |conversation| %>
+    <%# recipient = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender %>
+      <div class="col s12 m6" style="margin-top: 2rem">
+        <div class="card">
+          <div class="card-content">
+            <ul>
+              <li>Titre de l'article: <%= link_to conversation.article.title%></li>
+              <li>Vendeur : <%= link_to conversation.article.user.email%></li>
+              <li>Prix de l'article : <%= link_to conversation.article.price%>  <%= t('article_devise.money') %></li>
+              <li style="border-top: black solid 1px; margin-top: 3rem">
+                Crée le  : <%= link_to conversation.created_at%>
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <a><%= link_to t("account.ResetConv"), account_conversation_messages_path(conversation) %></a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

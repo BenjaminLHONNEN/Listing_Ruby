@@ -1,0 +1,43 @@
+<div class="row">
+  <% @articles.each do |article| %>
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image" style="position: relative">
+          <span class="badge" style="color:white; background-color: #0f9d58; position: absolute; top:0.5rem; left: 0.5rem; z-index: 200"><%= article.price %> <%= t('article_devise.money') %></span>
+          <img src="https://geo.img.pmdstatic.net/fit/https.3A.2F.2Fwww.2Egeo.2Efr.2Fvar.2Fgeo.2Fstorage.2Fimages.2Fmedia.2Fimages.2Ffond-d-ecran-gratuit-mer-falaises-d-etretat-en-normandie.2F1704066-1-fre-FR.2Ffond-d-ecran-gratuit-mer-falaises-d-etretat-en-normandie.2Ejpg/620x465/quality/65/fond-d-ecran-gratuit-mer-falaises-d-etretat-en-normandie.jpg">
+          <% if current_user.nil? %>
+          <% else %>
+            <% if current_user.id === article.user.id%>
+
+                <% else %>
+              <%= link_to  account_conversations_path(sender_id: current_user.id, receiver_id: article.user.id, article_id: article.id), method: :post, :class => "btn-floating halfway-fab waves-effect waves-light red" do%>
+                <i class="material-icons">message</i>
+              <% end  %>
+            <% end %>
+            <% end %>
+          <span class="card-title"><%= article.title%></span>
+        </div>
+        <div class="card-content">
+          <%= article.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<style>
+  .img1 {
+    float: left;
+    width: 20rem;
+    height: 20rem;
+    margin: 1rem;
+  }
+
+  .clearfix {
+    overflow: auto;
+  }
+
+
+</style>

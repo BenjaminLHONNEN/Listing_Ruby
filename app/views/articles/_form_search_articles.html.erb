@@ -1,0 +1,7 @@
+<%= form_tag(articles_path, method: :get) do %>
+<div class="input-field col s6">
+
+</div>
+  <%= text_field_tag(:search, params[:search], :class => "validate", :style => "color: white" ) %>
+  <%= submit_tag t("search"), :class => "waves-effect waves-light btn"%>
+<% end %>
