@@ -7,5 +7,6 @@ json.array!(@articles) do |article|
   json.title article.title
   json.content article.content
   json.category article.category
+  json.conversation article.conversation
   json.picture article.picture
 end

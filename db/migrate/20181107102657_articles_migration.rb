@@ -6,6 +6,7 @@ class ArticlesMigration < ActiveRecord::Migration[5.2]
       t.decimal :price
       t.integer :user_id
       t.integer :category_id
+      t.integer :conversation_id
       t.string :picture
 
       t.timestamps

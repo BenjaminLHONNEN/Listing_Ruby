@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :conversations
 
   def self.search(search)
     if search
