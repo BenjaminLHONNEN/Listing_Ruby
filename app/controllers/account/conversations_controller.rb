@@ -16,6 +16,8 @@ class Account::ConversationsController < Account::AccountController
   def create
     if Conversation.between(params[:sender_id], params[:receiver_id], params[:article_id]).present?
       @conversation = Conversation.between(params[:sender_id], params[:receiver_id], params[:article_id]).first
+
+      @article = Article.where("id = ?", params[:article_id]).update_all(conversation_id: @conversation.id)
     else
       @conversation = Conversation.create!(conversation_params)
     end

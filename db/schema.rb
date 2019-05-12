@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_082043) do
     t.decimal "price", precision: 10
     t.integer "user_id"
     t.integer "category_id"
+    t.integer "conversation_id"
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

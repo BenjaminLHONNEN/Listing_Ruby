@@ -7,6 +7,9 @@ json.array!(@articles) do |article|
   json.title article.title
   json.content article.content
   json.category article.category
-  json.conversation article.conversation
+  if @current_user.nil?
+  json.conversation article.conversations
+  end
+
   json.picture article.picture
 end

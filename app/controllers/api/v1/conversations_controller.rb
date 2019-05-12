@@ -12,6 +12,8 @@ class Api::V1::ConversationsController < Api::V1::ApiController
     if Conversation.between(params[:sender_id], params[:receiver_id], params[:article_id]).present?
       @conversation = Conversation.between(params[:sender_id], params[:receiver_id], params[:article_id]).first
 
+      @article = Article.where("id = ?", params[:article_id]).update_all(conversation_id: @conversation.id)
+
       render json: @conversation, status: :create
     else
       @conversation = Conversation.create!(conversation_params)
