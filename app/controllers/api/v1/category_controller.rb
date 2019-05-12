@@ -15,7 +15,7 @@ class Api::V1::CategoryController < Api::V1::ApiController
   def create
     @category = Category.new(category_params)
     if @category.save
-      render json: @category, status: :create
+      render json: @category, status: 200
     else
       render json: @category.errors, status: :unprocessable_entity
     end
@@ -24,7 +24,7 @@ class Api::V1::CategoryController < Api::V1::ApiController
   # PATCH/PUT /categories/1
   def update
     if @category.update(article_params)
-      render json: @category , status: :update
+      render json: @category , status: 200
     else
       render json: @category.errors, status: :unprocessable_entity
     end

@@ -16,7 +16,7 @@ class Api::V1::ArticlesController < Api::V1::ApiController
   def create
     @article = Article.new(article_params)
     if @article.save
-      render json: @article, status: :create
+      render json: @article, status:200
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class Api::V1::ArticlesController < Api::V1::ApiController
   # PATCH/PUT /articles/1
   def update
     if @article.update(article_params)
-      render json: @article, status: :update
+      render json: @article, status:200
     else
       render json: @article.errors, status: :unprocessable_entity
     end
