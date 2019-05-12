@@ -21,12 +21,12 @@ class Api::V1::MessagesController < Api::V1::ApiController
 
     @message = @conversation.messages.new(message_params)
 
-    @message.user =  @current_user
+    @message.user == @current_user
 
     if @message.save
-      render json: @article, status: 200
+      render json: @message, status: 201
     else
-      render json: @article.errors, status: :unprocessable_entity
+      render json: @message.errors, status: :unprocessable_entity
     end
   end
 
