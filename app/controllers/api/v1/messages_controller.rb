@@ -33,6 +33,6 @@ class Api::V1::MessagesController < Api::V1::ApiController
   private
 
   def message_params
-    params.require(:message).permit(:body, :user_id).merge(user_id: @current_user)
+    params.require(:message).permit(:body, :user_id).merge(user_id: @current_user.id)
   end
 end
