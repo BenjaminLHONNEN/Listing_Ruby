@@ -15,6 +15,7 @@ class Api::V1::MessagesController < Api::V1::ApiController
 
     @message = @conversation.messages.new
   end
+
   def create
 
 
@@ -23,7 +24,7 @@ class Api::V1::MessagesController < Api::V1::ApiController
     @message.user =  @current_user
 
     if @message.save
-      render json: @article, status: :created
+      render json: @article, status: 200
     else
       render json: @article.errors, status: :unprocessable_entity
     end

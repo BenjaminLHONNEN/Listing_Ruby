@@ -14,7 +14,7 @@ class Api::V1::ConversationsController < Api::V1::ApiController
 
       @article = Article.where("id = ?", params[:article_id]).update_all(conversation_id: @conversation.id)
 
-      render json: @conversation, status: :create
+      render json: @conversation, status: 200
     else
       @conversation = Conversation.create!(conversation_params)
       render json: @conversation, status: :unprocessable_entity
